@@ -35,4 +35,6 @@ def list_reviews(limit=10, cursor=None, list=0):
 
     next_page = cursor + limit if len(reviews) == limit else None 
 
-    return (reviews, next_page)
+    previous_page = cursor - limit if cursor > 0 else -1 
+
+    return (reviews, next_page, previous_page)

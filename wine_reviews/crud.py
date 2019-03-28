@@ -10,11 +10,13 @@ def list():
     if token:
         token = token.encode('utf-8')
     
-    reviews, next_page_token = get_model().list_reviews(cursor=token)
+    reviews, next_page_token, previous_page_token = get_model().list_reviews(cursor=token)
 
+    print(previous_page_token)
     return render_template(
         "list.html",
         reviews=reviews,
-        next_page_token=next_page_token
+        next_page_token=next_page_token,
+        previous_page_token=previous_page_token
     )
 

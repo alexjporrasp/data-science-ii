@@ -3,14 +3,26 @@
 {% block content %}
 
 <div class="container">
-    {% for review in reviews %}
+
+    <h1 class="my-4">Page Heading
+        <small>Secondary Text</small>
+    </h1>
+
     <div class="row text-center">
-        <div class="col-lg-3 col-md-6 mb-4">
+    {% for review in reviews %}
+        <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
+                    <h4 class="card-title">
+                        {% if review.title %}
+                            {{review.title}}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </h4>
                     <p class="card-text">
-                        Blah blah blah
+                        {{review.description}}
                     </p>
                 </div>
                 <div class="card-footer">
@@ -18,10 +30,41 @@
                 </div>
             </div>
         </div>
+        {% else %}
+        <p>No reviews found.</p>
+        {% endfor %}
     </div>
-    {% else %}
-    <p>No reviews found.</p>
-    {% endfor %}
 </div>
+
+<!-- Pagination -->
+<ul class="pagination justify-content-center">
+    {% if previous_page_token >= 0 %}
+    <li class="page-item">
+        <a class="page-link" href="?page_token={{previous_page_token}}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+            </a>
+    </li>
+    {% endif %}
+
+    <li class="page-item">
+        <a class="page-link" href="#">1</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="#">3</a>
+    </li>
+
+    {% if next_page_token %}
+    <li class="page-item">
+        <a class="page-link" href="?page_token={{next_page_token}}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+            </a>
+    </li>
+    {% endif %}
+</ul>
 
 {% endblock %}
