@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-import sys, csv
+import sys, csv, json
 
 if __name__=='__main__':
     
@@ -15,17 +15,20 @@ if __name__=='__main__':
 
 
     with open(csv_path) as csv_file: 
+        json_file = open('wine_reviews.json', 'w+')
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         header = None
         for row in csv_reader:
+            print("line #", line_count)
             if line_count == 0:
                 header = row
             else:
-                review = {}
+                review = dict()
                 for i, col in enumerate(row):
-                    review[i] = col[i]
-                wine_reviews.insert(review)
+                    review[header[i]] = col
+                json.dump(review, json_file)
+                json_file.write('\n')
             line_count += 1
         print(f'Inserted {line_count} documents.')
 
