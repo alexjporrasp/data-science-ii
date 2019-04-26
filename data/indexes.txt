@@ -2,7 +2,7 @@
 db.wine_reviews.createIndex({'points': 1});
 
 # Creates an index for the country
-db.wine_reviews.createIndex({'variety': 1});
+db.wine_reviews.createIndex({'country': 1});
 
 # Creates a weighted text index for the title (10), the designation (5) and the description (1)
 # It uses the default language, English
@@ -19,6 +19,6 @@ db.wine_reviews.createIndex(
      },
      name: "TextIndex"
    }
- )
+ );
 
 
