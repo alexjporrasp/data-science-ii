@@ -119,7 +119,7 @@ def custom_search(query, limit=10, cursor=None, list=0):
         q += ' and '
 
     q = q[:-4]
-    q += " limit "+str((cursor + limit))+';'
+    q += " limit "+str((cursor + limit))+' allow filtering;'
     print(q)
     request = session.execute(q)
     reviews = [item for item in request]
