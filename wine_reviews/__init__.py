@@ -46,6 +46,12 @@ def get_model():
     if model_backend == 'mongodb':
         from . import model_mongodb
         model = model_mongodb
+    elif model_backend == 'cassandra':
+        from . import model_cassandra
+        model = model_cassandra
+    elif model_backend == 'hive':
+        from . import model_hive
+        model = model_hive
     else:
         raise ValueError(
             "No appropriate databackend configured. "

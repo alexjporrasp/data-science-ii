@@ -1,6 +1,6 @@
 import os
 
-DATA_BACKEND = 'cassandra'
+DATA_BACKEND = 'hive'
 
 # mongo configuration
 
@@ -18,3 +18,12 @@ MONGO_URI = \
 CASSANDRA_IP = 'localhost'
 CASSANDRA_PORT = 9042
 CASSANDRA_KEYSPACE = 'wine_review'
+
+# Hive configuration
+
+HIVE_IP = '127.0.0.1'
+HIVE_PORT = 10000
+HIVE_SCHEMA = 'wine'
+HIVE_USER = 'root'
+HIVE_PASSWORD = 'hadoop'
+HIVE_TABLE = 'wine_review'
