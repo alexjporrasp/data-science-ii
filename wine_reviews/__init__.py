@@ -52,6 +52,9 @@ def get_model():
     elif model_backend == 'neo4j':
         from . import model_neo4j
         model = model_neo4j
+    elif model_backend == 'hive':
+        from . import model_hive
+        model = model_hive
     else:
         raise ValueError(
             "No appropriate databackend configured. "

@@ -24,3 +24,11 @@ NEO4J_USER = 'neo4j'
 NEO4J_PASSWORD = os.getenv('NEO4J_PASSWORD')
 NEO4J_URI = 'bolt://localhost'
 
+# Hive configuration
+
+HIVE_IP = '127.0.0.1'
+HIVE_PORT = 10000
+HIVE_SCHEMA = 'wine'
+HIVE_USER = 'root'
+HIVE_PASSWORD = 'hadoop'
+HIVE_TABLE = 'wine_review'
