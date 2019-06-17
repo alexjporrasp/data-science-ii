@@ -28,15 +28,19 @@
 <!-- Page Content -->
 <div class="container">
 
-    <h1 class="my-4">Page Heading
-        <small>Secondary Text</small>
+    <h1 class="my-4">Wine Reviews
+        {% if request.args.get('search') %}
+        <small>Search Results</small>
+        {% else %}
+        <small>Home</small>
+        {% endif %}
     </h1>
 
     <div class="row text-center">
     {% for review in reviews %}
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <!--<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
                 <div class="card-body">
                     <h4 class="card-title">
                         {% if review.title %}

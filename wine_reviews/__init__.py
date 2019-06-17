@@ -46,6 +46,12 @@ def get_model():
     if model_backend == 'mongodb':
         from . import model_mongodb
         model = model_mongodb
+    elif model_backend == 'cassandra':
+        from . import model_cassandra
+        model = model_cassandra
+    elif model_backend == 'neo4j':
+        from . import model_neo4j
+        model = model_neo4j
     else:
         raise ValueError(
             "No appropriate databackend configured. "

@@ -1,6 +1,6 @@
 import os
 
-DATA_BACKEND = 'cassandra'
+DATA_BACKEND = 'neo4j'
 
 # mongo configuration
 
@@ -18,3 +18,9 @@ MONGO_URI = \
 CASSANDRA_IP = 'localhost'
 CASSANDRA_PORT = 9042
 CASSANDRA_KEYSPACE = 'wine_review'
+
+# Neo4J Configuration
+NEO4J_USER = 'neo4j'
+NEO4J_PASSWORD = os.getenv('NEO4J_PASSWORD')
+NEO4J_URI = 'bolt://localhost'
+
